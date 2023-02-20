@@ -6,6 +6,7 @@ CREATE TABLE
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
         updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update',
         creatorId VARCHAR(255) NOT NULL,
-        ticketname VARCHAR(255),
-        ticketclient VARCHAR(255)
+        ticketname VARCHAR(255) NOT NULL,
+        ticketclient VARCHAR(255) NOT NULL,
+        description VARCHAR(255) NOT NULL
     ) default charset utf8 COMMENT '';
