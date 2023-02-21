@@ -7,3 +7,11 @@ public class Account
   public string Email { get; set; }
   public string Picture { get; set; }
 }
+
+
+public class Profile : Account
+{
+  public new string Email { get; set; }
+
+
+}

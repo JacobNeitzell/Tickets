@@ -30,7 +30,10 @@ public class Startup
     });
     services.AddSingleton<Auth0Provider>();
     services.AddScoped<IDbConnection>(x => CreateDbConnection());
-
+    services.AddScoped<TicketsService>();
+    services.AddScoped<TicketsRepository>();
+    services.AddScoped<UserTicketsService>();
+    services.AddScoped<UserTicketsRepository>();
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
   }
