@@ -21,6 +21,19 @@ public class TicketsRepository : BaseRepo
     return newTicket;
   }
 
+  public void Delete(Ticket foundTicket)
+  {
+    string sql = @"
+DELETE FROM tickets
+WHERE id = @id
+;";
+    int ticketRows = _db.Execute(sql, foundTicket);
+    if (ticketRows == 0)
+    {
+      throw new Exception("Unable to delete the Ticket");
+    }
+  }
+
 
 
 
