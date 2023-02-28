@@ -10,6 +10,11 @@ public class TicketsService
   }
 
 
+  internal Ticket CreateTicket(Ticket newTicket)
+  {
+    return _tr.Create(newTicket);
+  }
+
 
 
 }
