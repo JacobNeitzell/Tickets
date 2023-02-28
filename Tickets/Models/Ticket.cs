@@ -12,4 +12,6 @@ public class Ticket
 
   public string description { get; set; }
 
+  public Profile Creator { get; set; }
+
 }

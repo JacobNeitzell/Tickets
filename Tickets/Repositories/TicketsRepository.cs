@@ -35,7 +35,22 @@ WHERE id = @id
   }
 
 
-
+  public Ticket GetById(int ticketId)
+  {
+    string sql = @"
+SELECT 
+tick.*
+a.*
+FROM ticket tick
+JOIN accounts a on a.id = tick.creatorId
+WHERE tick.id = @ticketId
+;";
+    return _db.Query<Ticket, Profile, Ticket>(sql, (ticket, profile) =>
+    {
+      ticket.Creator = profile;
+      return ticket;
+    }, new { ticketId }).FirstOrDefault();
+  }
 
 
 
