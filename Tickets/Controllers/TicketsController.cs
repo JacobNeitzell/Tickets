@@ -22,11 +22,11 @@ public class TicketsController : ControllerBase
   {
     try
     {
-      Account userInfo = await _auth0provider.GetUserInfoAsync<Account>(HttpContext);
+      Profile userInfo = await _auth0provider.GetUserInfoAsync<Profile>(HttpContext);
       newTicket.CreatorId = userInfo.Id;
       Ticket createdTicket = _ts.CreateTicket(newTicket);
       createdTicket.Creator = userInfo;
-      return OkObjectResult(createdTicket);
+      return Ok(createdTicket);
 
     }
     catch (Exception e)
