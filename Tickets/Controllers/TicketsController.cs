@@ -24,7 +24,7 @@ public class TicketsController : ControllerBase
     {
       Account userInfo = await _auth0provider.GetUserInfoAsync<Account>(HttpContext);
       newTicket.CreatorId = userInfo.Id;
-      Ticket createdTicket = _vs.CreateTicket(newTicket);
+      Ticket createdTicket = _ts.CreateTicket(newTicket);
       createdTicket.Creator = userInfo;
       return OkObjectResult(createdTicket);
 
