@@ -36,6 +36,21 @@ public class TicketsController : ControllerBase
   }
 
 
+  [HttpGet("{ticketId}")]
+
+  public async Task<ActionResult<Ticket>> GetTicketId(int ticketId)
+  {
+    try
+    {
+      Profile userInfo = await _auth0provider.GetUserInfoAsync<Profile>(HttpContext);
+      Ticket foundTicket = _ts.GetTicketId(ticketId, userInfo?.Id);
+      return Ok(foundTicket);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 
 
 

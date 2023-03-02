@@ -16,5 +16,39 @@ public class TicketsService
   }
 
 
+  internal Ticket GetTicketId(int ticketId, string userInfo)
+  {
+    Ticket foundTicket = _tr.GetById(ticketId);
+    if (foundTicket == null)
+    {
+      throw new Exception("Ticket Does Not Exist");
+
+    }
+    return foundTicket;
+  }
+
+  internal void DeleteTicket(int ticketId, string accountId)
+  {
+    Ticket foundTicket = GetTicketId(ticketId, accountId);
+    if (foundTicket == null)
+    {
+      throw new Exception("Ticket Does not Exist");
+    }
+    if (foundTicket.CreatorId != accountId)
+    {
+      throw new Exception("Unauthorized to delete ticket");
+    }
+    _tr.Delete(foundTicket);
+  }
+
+
+
+
+
+
+
+
+
+
 
 }
