@@ -53,7 +53,22 @@ public class TicketsController : ControllerBase
   }
 
 
+  [HttpDelete("{ticketId}")]
+  [Authorize]
 
+  public async Task<ActionResult<string>> DeleteTicket(int ticketId)
+  {
+    try
+    {
+      Profile userInfo = await _auth0provider.GetUserInfoAsync<Profile>(HttpContext);
+      _ts.DeleteTicket(ticketId, userInfo.Id);
+      return Ok("Ticket Succefully Deleted");
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
 
 
 
