@@ -9,10 +9,10 @@ public class Ticket : ICreated, IRepoItem<int>
   public DateTime UpdatedAt { get; set; }
 
   public string CreatorId { get; set; }
-  public string ticketname { get; set; }
-  public string ticketclient { get; set; }
+  public string Ticketname { get; set; }
+  public string Ticketclient { get; set; }
 
-  public string description { get; set; }
+  public string Description { get; set; }
 
   public Profile Creator { get; set; }
 
