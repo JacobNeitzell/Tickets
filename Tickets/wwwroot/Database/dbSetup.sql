@@ -1,4 +1,4 @@
--- Active: 1675287303490@@SG-south-front-8653-7173-mysql-master.servers.mongodirector.com@3306@Sgroot
+-- Active: 1678299152493@@SG-copy-bugle-5822-7314-mysql-master.servers.mongodirector.com@3306@Tickets
 
 CREATE TABLE
     IF NOT EXISTS accounts(
