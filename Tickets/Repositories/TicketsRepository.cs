@@ -12,8 +12,8 @@ public class TicketsRepository : BaseRepo
   public Ticket Create(Ticket newTicket)
   {
     string sql = @"
-    INSERT INTO tickets(description,ticketname,ticketclient)
-    VALUES(@Description,@Ticketname,@Ticketclient);
+    INSERT INTO tickets(description,ticketname,ticketclient,creatorId)
+    VALUES(@Description,@Ticketname,@Ticketclient,@CreatorId);
     SELECT LAST_INSERT_ID()
     ;";
     int ticketId = _db.ExecuteScalar<int>(sql, newTicket);
