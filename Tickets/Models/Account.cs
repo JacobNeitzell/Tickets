@@ -10,7 +10,6 @@ public class Account : IRepoItem<string>
 
   public DateTime CreatedAt { get; set; }
 
-  public DateTime Updatedat { get; set; }
   public DateTime UpdatedAt { get; set; }
 }
 
