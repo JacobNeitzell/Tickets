@@ -8,5 +8,6 @@ CREATE TABLE
         creatorId VARCHAR(255) NOT NULL,
         ticketname VARCHAR(255) NOT NULL,
         ticketclient VARCHAR(255) NOT NULL,
-        description VARCHAR(255) NOT NULL
+        description VARCHAR(255) NOT NULL,
+        FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';
