@@ -45,9 +45,9 @@ FROM ticket tick
 JOIN accounts a on a.id = tick.creatorId
 WHERE tick.id = @ticketId
 ;";
-    return _db.Query<Ticket, Profile, Ticket>(sql, (ticket, profile) =>
+    return _db.Query<Ticket, Account, Ticket>(sql, (ticket, account) =>
     {
-      ticket.Creator = profile;
+      ticket.Creator = account;
       return ticket;
     }, new { ticketId }).FirstOrDefault();
   }

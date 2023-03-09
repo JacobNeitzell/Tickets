@@ -11,7 +11,7 @@ public class Ticket : ICreated, IRepoItem<int>
 
   public string Description { get; set; }
 
-  public Profile Creator { get; set; }
+  public Account Creator { get; set; }
 
   public string CreatorId { get; set; }
   public DateTime CreatedAt { get; set; }
