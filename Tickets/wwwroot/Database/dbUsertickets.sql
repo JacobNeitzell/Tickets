@@ -6,5 +6,5 @@ CREATE TABLE
         name VARCHAR(255) NOT NULL,
         ticketlist INT NOT NULL,
         ticketId INT NOT NULL,
-        FOREIGN KEY (ticketId) REFERENCES tickets (id) ON DELETE CASCADE
+        FOREIGN KEY (ticketId) REFERENCES ticket (id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';

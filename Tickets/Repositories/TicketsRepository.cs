@@ -12,7 +12,7 @@ public class TicketsRepository : BaseRepo
   public Ticket Create(Ticket newTicket)
   {
     string sql = @"
-    INSERT INTO tickets(description,ticketname,ticketclient,creatorId)
+    INSERT INTO ticket(description,ticketname,ticketclient,creatorId)
     VALUES(@Description,@Ticketname,@Ticketclient,@CreatorId);
     SELECT LAST_INSERT_ID()
     ;";
@@ -24,7 +24,7 @@ public class TicketsRepository : BaseRepo
   public void Delete(Ticket foundTicket)
   {
     string sql = @"
-DELETE FROM tickets
+DELETE FROM ticket
 WHERE id = @id
 ;";
     int ticketRows = _db.Execute(sql, foundTicket);
