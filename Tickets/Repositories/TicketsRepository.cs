@@ -1,6 +1,8 @@
+using Tickets.Interfaces;
+
 namespace Tickets.Repositories;
 
-public class TicketsRepository : BaseRepo
+public class TicketsRepository : BaseRepo, IRepository<Ticket, int>
 {
 
   public TicketsRepository(IDbConnection db) : base(db)
@@ -34,16 +36,25 @@ WHERE id = @id
     }
   }
 
+  public void Delete(int id)
+  {
+    throw new NotImplementedException();
+  }
+
+  public List<Ticket> Get()
+  {
+    throw new NotImplementedException();
+  }
 
   public Ticket GetById(int ticketId)
   {
     string sql = @"
 SELECT 
-tick.*
+t.*,
 a.*
-FROM ticket tick
-JOIN accounts a on a.id = tick.creatorId
-WHERE tick.id = @ticketId
+FROM ticket t
+JOIN accounts a on a.id = t.creatorId
+WHERE t.id = @ticketId
 ;";
     return _db.Query<Ticket, Account, Ticket>(sql, (ticket, account) =>
     {
@@ -52,17 +63,8 @@ WHERE tick.id = @ticketId
     }, new { ticketId }).FirstOrDefault();
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  public Ticket Update(Ticket data)
+  {
+    throw new NotImplementedException();
+  }
 }
