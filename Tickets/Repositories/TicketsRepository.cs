@@ -63,8 +63,15 @@ WHERE t.id = @ticketId
     }, new { ticketId }).FirstOrDefault();
   }
 
-  public Ticket Update(Ticket data)
+  public Ticket Update(Ticket original)
   {
-    throw new NotImplementedException();
+    string sql = @"
+UPDATE ticket SET
+ticketname = @Name,
+description = @Description,
+WHERE id = @Id
+   ;";
+    _db.Execute(sql, original);
+    return original;
   }
 }

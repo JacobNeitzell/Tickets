@@ -41,6 +41,26 @@ public class TicketsService
     _tr.Delete(foundTicket);
   }
 
+  internal Ticket UpdateTicket(Ticket ticketData, string userId)
+  {
+    Ticket original = GetTicketId(ticketData.Id, ticketData.CreatorId);
+    if (ticketData.CreatorId != original.CreatorId)
+    {
+      throw new Exception("Unauthorized to edit this Ticket");
+    }
+    if (original.CreatorId != userId)
+    {
+      throw new Exception("Not authorized");
+    }
+    original.Ticketname = ticketData.Ticketname ?? original.Ticketname;
+    original.Description = ticketData.Description ?? original.Description;
+    _tr.Update(original);
+    return original;
+
+
+
+  }
+
 
 
 
