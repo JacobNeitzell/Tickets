@@ -71,6 +71,25 @@ public class TicketsController : ControllerBase
   }
 
 
+  [HttpPut("{ticketId}")]
+  [Authorize]
+
+  public async Task<ActionResult<Ticket>> UpdateTicket([FromBody] Ticket ticketData, int ticketId)
+  {
+    try
+    {
+      Account userInfo = await _auth0provider.GetUserInfoAsync<Account>(HttpContext);
+      ticketData.CreatorId = userInfo.Id;
+      ticketData.Id = ticketId;
+      Ticket ticket = _ts.UpdateTicket(ticketData, userInfo.Id);
+      return Ok(ticket);
+    }
+    catch (Exception e)
+    {
+      return BadRequest(e.Message);
+    }
+  }
+
 
 
 
