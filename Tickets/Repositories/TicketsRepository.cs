@@ -68,7 +68,7 @@ WHERE t.id = @ticketId
     string sql = @"
 UPDATE ticket SET
 ticketname = @Ticketname,
-description = @Description,
+description = @Description
 WHERE id = @Id
    ;";
     _db.Execute(sql, original);
