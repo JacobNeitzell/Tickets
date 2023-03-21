@@ -67,7 +67,7 @@ WHERE t.id = @ticketId
   {
     string sql = @"
 UPDATE ticket SET
-ticketname = @Name,
+ticketname = @Ticketname,
 description = @Description,
 WHERE id = @Id
    ;";
