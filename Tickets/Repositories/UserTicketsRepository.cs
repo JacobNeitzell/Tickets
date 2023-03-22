@@ -32,7 +32,20 @@ SELECT LAST_INSERT_ID()
     _db.Execute(sql, savedTicket);
   }
 
+  public UserTickets GetByUserTicketId(int userticketId)
+  {
+    string sql = @"
+  SELECT 
+  *,
+  COUNT(ut.id) AS UserTick,
+  ut.id AS userticketsId
+  FROM usertickets ut
+  WHERE id =@userticketsId
+  GROUP BY ut.id 
 
+  ;";
+    return _db.QueryFirstOrDefault<UserTickets>(sql, new { userticketId });
+  }
 
 }
 
