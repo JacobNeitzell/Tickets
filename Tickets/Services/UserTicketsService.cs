@@ -15,14 +15,21 @@ public class UserTicketsService
     _ts = ts;
   }
 
-internal UserTickets CreateUserTicket(UserTickets ticketData, string accountId)
-{
-  Ticket ticket = _ts.GetTicketId(ticketData.TicketId, accountId);
-  if (ticketData.CreatorId != ticket.CreatorId)
+
+  internal UserTickets CreateUserTicket(UserTickets ticketData, string accountId)
   {
-    throw new Exception("Unauthorized");
+    Ticket ticket = _ts.GetTicketId(ticketData.TicketId, accountId);
+    if (ticketData.CreatorId != ticket.CreatorId)
+    {
+      throw new Exception("Unauthorized");
+    }
+    UserTickets userticket = _tr.Create(ticketData);
+    if (userticket == null)
+    {
+      throw new Exception("it  be null");
+    }
+    return userticket;
   }
-}
 
 
 

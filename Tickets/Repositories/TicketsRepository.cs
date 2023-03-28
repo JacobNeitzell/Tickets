@@ -74,4 +74,9 @@ WHERE id = @Id
     _db.Execute(sql, original);
     return original;
   }
+
+  internal UserTickets Create(UserTickets ticketData)
+  {
+    throw new NotImplementedException();
+  }
 }
