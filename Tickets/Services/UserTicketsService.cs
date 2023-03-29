@@ -32,6 +32,16 @@ public class UserTicketsService
   }
 
 
+  internal List<UserTickets> GetTicketsByUser(int ticketId, string userInfo)
+  {
+    Ticket ticket = _ts.GetTicketId(ticketId, userInfo);
+
+    List<AllTickets> userTickets = _ut.GetByUserTicketId(ticketId);
+    return userTickets;
+
+
+  }
+
 
 
 }
