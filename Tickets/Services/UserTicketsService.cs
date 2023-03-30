@@ -31,16 +31,16 @@ public class UserTicketsService
     return userticket;
   }
 
+  // TODO setup a new database and connect them 
+  // internal List<UserTickets> GetTicketsByUser(int ticketId, string userInfo)
+  // {
+  //   Ticket ticket = _ts.GetTicketId(ticketId, userInfo);
 
-  internal List<UserTickets> GetTicketsByUser(int ticketId, string userInfo)
-  {
-    Ticket ticket = _ts.GetTicketId(ticketId, userInfo);
-
-    List<AllTickets> userTickets = _ut.GetByUserTicketId(ticketId);
-    return userTickets;
+  //   ist<AllTickets> userTickets = _ut.GetByUserTicketId(ticketId);
+  //   return userTickets;L
 
 
-  }
+  // }
 
 
 
