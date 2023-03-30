@@ -9,3 +9,12 @@ CREATE TABLE
         description VARCHAR(255) NOT NULL,
         FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
     ) default charset utf8 COMMENT '';
+
+Create TABLE
+    IF NOT EXISTS myticket(
+        id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        creatorId VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        description VARCHAR(255) NOT NULL,
+        FOREIGN KEY(creatorId) REFERENCES accounts(id) ON DELETE CASCADE
+    ) default charset utf8 COMMENT '';

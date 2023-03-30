@@ -24,6 +24,8 @@ public class Ticket : ICreated, IRepoItem<int>
 
 public class AllTickets : Ticket
 {
+
+  public int UserTicketId { get; set; }
   public int TicketId { get; set; }
 
   public string UserTicketCreatorId { get; set; }
